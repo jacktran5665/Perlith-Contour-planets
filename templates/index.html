@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exoplanet Topographic Map Generator</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="star-bg"></div>
+    <canvas id="star-canvas"></canvas>
+    <div class="center-flex">
+        <div>
+            <h1>          </h1>
+            <h1>          </h1>
+            <div class="planet-img-wrapper">
+                <img id="planet-img" src="/random-planet" alt="Exoplanet Map" width="400" height="400" />
+            </div>
+        </div>
+    </div>
+    <button id="generate-btn">Generate</button>
+    <script src="/static/starfield.js"></script>
+    <script src="/static/main.js"></script>
+</body>
+</html>

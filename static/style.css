@@ -1,0 +1,148 @@
+.center-flex > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.planet-img-wrapper {
+    position: relative;
+    display: inline-block;
+}
+body {
+    background: radial-gradient(ellipse at 60% 40%, #070c18 60%, #010212 100%);
+    color: #e0e0f0;
+    font-family: 'Orbitron', 'Roboto Mono', 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.star-bg, #star-canvas {
+    background: transparent !important;
+}
+.center-flex h1 {
+    margin-bottom: 32px;
+    color: #fff0f0;
+    font-family: 'Orbitron', 'Roboto Mono', monospace;
+    font-size: 2.2rem;
+    letter-spacing: 5px;
+    text-shadow: 0 4px 0 #000, 0 0 12px #ffe066cc;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+.center-flex img, #planet-img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: #23243a;
+    box-shadow: 0 0 16px 8px #fff0f0, 0 0 0 8px #0a0a18cc;
+    border: 4px solid #fff0f0;
+    transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    opacity: 1;
+    transform: scale(1);
+    animation: planet-spin 20s linear infinite;
+}
+
+#planet-img.planet-zoom-in {
+    animation: planet-zoom-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0s 1;
+}
+
+@keyframes planet-zoom-in {
+    0% {
+        transform: scale(0.2) rotate(0deg);
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+.planet-img-fade {
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+button#generate-btn {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at 60% 40%, #ffe066 70%, #ffb300 100%);
+    color: #23243a;
+    border: 4px solid #fffbe6;
+    border-radius: 50%;
+    padding: 0;
+    font-size: 1.3rem;
+    font-family: 'Orbitron', 'Roboto Mono', monospace;
+    font-weight: 900;
+    cursor: pointer;
+    z-index: 2;
+    box-shadow: 0 0 32px 8px #ffe06699, 0 0 0 8px #0a0a18cc, 0 2px 16px #ffe06655;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+    text-shadow: 0   2px 8px #fffbe6, 0 1px 0 #fffbe6;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px) brightness(1.1);
+    outline: none;
+    border-style: double;
+    box-sizing: border-box;
+    text-transform: uppercase;
+}
+
+button#generate-btn.btn-zoom-in {
+    animation: btn-zoom-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0s 1;
+}
+
+@keyframes btn-zoom-in {
+    0% {
+        transform: scale(0.2);
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+button#generate-btn:hover {
+    background: radial-gradient(circle at 60% 40%, #fffbe6 80%, #ffe066 100%);
+    color: #23243a;
+    box-shadow: 0 0 48px 16px #ffe066cc, 0 0 0 8px #0a0a18cc, 0 4px 24px #ffe06699;
+    transform: scale(1.08) rotate(-2deg);
+}
+@keyframes planet-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.star-bg {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: transparent;
+}
+#star-canvas {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    display: block;
+    background: transparent;
+}
+.star-bg:before {
+}
+
